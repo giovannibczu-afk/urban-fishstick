@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday! 💖✨</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Floating Hearts Background -->
+  <div class="bg-hearts">
+    <span>💖</span><span>✨</span><span>🌸</span><span>💖</span><span>✨</span><span>🌸</span>
+  </div>
+
+  <main class="card-wrapper">
+    <!-- Celebrant Photo with Glowing Ring -->
+    <div class="avatar-box">
+      <div class="glow-ring"></div>
+      <img src="celebrant.jpg" alt="Celebrant" class="avatar-img">
+    </div>
+
+    <div class="badge">🎉 IT'S YOUR DAY!</div>
+
+    <h1 class="greeting">Happy Birthday,</h1>
+    <h2 class="name-highlight">Maria Clara! ✨</h2>
+
+    <p class="sweet-text">
+      "Wishing you 365 days of endless joy, love, and success. Keep glowing and being the wonderful person you are!" 🌸
+    </p>
+
+    <!-- Interactive Music Player Box -->
+    <div class="player-card">
+      <div class="player-left">
+        <button class="play-btn" id="playBtn" onclick="toggleAudio()">▶</button>
+        <div class="song-info">
+          <span class="track-title">Pahinga</span>
+          <span class="track-artist">Moira Dela Torre</span>
+        </div>
+      </div>
+      
+      <!-- Animated Sound Wave -->
+      <div class="sound-wave" id="wave">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
+    </div>
+
+    <!-- Hidden Audio Tag -->
+    <audio id="bgMusic" loop>
+      <source src="tiktokio.com1792227213_2t73TNExz9guxbm3VwJb.mp4" type="audio/mp4">
+    </audio>
+
+    <!-- Surprise Action Button -->
+    <button class="gift-btn" onclick="openSurprise()">
+      <span>Open Birthday Gift 🎁</span>
+    </button>
+
+    <!-- Popup Modal for Surprise -->
+    <div id="modalOverlay" class="modal-overlay" onclick="closeSurprise()">
+      <div class="modal-box" onclick="event.stopPropagation()">
+        <span class="close-modal" onclick="closeSurprise()">&times;</span>
+        <div class="modal-icon">🎂</div>
+        <h3>Make a Wish! ✨</h3>
+        <p>May all your prayers, dreams, and heart's desires come true today and always! Stay blessed! 🥳🎉</p>
+        <button class="modal-close-btn" onclick="closeSurprise()">Thank You! 💕</button>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const audio = document.getElementById('bgMusic');
+    const playBtn = document.getElementById('playBtn');
+    const wave = document.getElementById('wave');
+
+    function toggleAudio() {
+      if (audio.paused) {
+        audio.play();
+        playBtn.innerHTML = "⏸";
+        wave.classList.add('playing');
+      } else {
+        audio.pause();
+        playBtn.innerHTML = "▶";
+        wave.classList.remove('playing');
+      }
+    }
+
+    function openSurprise() {
+      document.getElementById('modalOverlay').classList.add('show');
+    }
+
+    function closeSurprise() {
+      document.getElementById('modalOverlay').classList.remove('show');
+    }
+  </script>
+</body>
+  </html>
+  
